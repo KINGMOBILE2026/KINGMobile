@@ -420,11 +420,10 @@ header{margin-bottom:0!important;padding-bottom:4px!important}
 <div class="bysec"><div class="byh">आपकी जानकारी</div>
 <input type="text" id="byn" placeholder="आपका पूरा नाम *" autocomplete="name">
 <input type="text" id="bym" inputmode="numeric" maxlength="14" placeholder="मोबाइल नंबर * (10 अंक)" autocomplete="tel"></div>
-<div class="bysec"><div class="byh">सामान कैसे लेंगे?</div>
-<div class="byc2"><button data-bd="shop" id="bdshop">🏪 दुकान से लूँगा</button><button data-bd="home" id="bdhome">🚚 घर पर मँगवाना</button></div>
+<div class="bysec"><div class="byh">🚚 घर पर डिलीवरी</div>
 <div id="byaddr"><div class="byh" style="font-size:14px">📍 पूरा पता भरिए</div><input type="text" id="bya" placeholder="मकान नंबर / गली / मोहल्ला *" autocomplete="street-address"><input type="text" id="byk" placeholder="लैंडमार्क (जैसे मंदिर, स्कूल के पास)"><div class="row"><input type="text" id="byc" placeholder="गाँव / शहर *"><input type="text" id="byd" placeholder="जिला"></div><div class="row"><input type="text" id="bys" placeholder="राज्य"><input type="text" id="byp" inputmode="numeric" maxlength="6" placeholder="पिनकोड *"></div></div></div>
 <div class="bysec"><div class="byh">पेमेंट कैसे करेंगे?</div>
-<div class="byc2 c3"><button data-bp="Cash" id="bpCash">💵 Cash</button><button data-bp="UPI" id="bpUPI">📲 UPI</button><button data-bp="Udhaar" id="bpUdhaar">📒 उधार</button></div>
+<div class="byc2"><button data-bp="Cash" id="bpCash">💵 Cash</button><button data-bp="UPI" id="bpUPI">📲 UPI</button></div><div id="byqr" style="display:none"></div>
 <input type="text" id="byt" placeholder="कुछ और बताना हो तो लिखिए (वैकल्पिक)"></div>
 <div class="bysec" id="byno" style="display:none"></div>
 <div class="bysec" id="bypd"></div>
@@ -439,7 +438,7 @@ header{margin-bottom:0!important;padding-bottom:4px!important}
 <input type="file" id="pfv" accept="video/*">
 <div id="ps"><div class="sh"><div id="pst">फोटो / वीडियो कैसे लगाएँ?</div><button class="sb p" id="psc">कैमरा से खींचें</button><button class="sb" id="psg">गैलरी से चुनें</button><button class="sb" id="psv">🎬 वीडियो जोड़ें</button><button class="sb" id="psx">रद्द करें</button></div></div>
 <div id="sk"><div class="sh"><div>Stock</div><button class="sb" id="sk1">Yes</button><button class="sb" id="sk2">NO</button><button class="sb p" id="sko">OK</button><button class="sb" id="skx">रद्द करें</button></div></div>
-<div id="pv"><div id="pvn"></div><div class="pvm"><button class="nv" id="pvp">‹</button><img id="pvi" alt=""><button class="nv" id="pvx">›</button></div><div class="row" style="width:100%;max-width:380px"><button id="pvr">+ फोटो जोड़ें</button><button id="pvd">यह फोटो हटाएँ</button><button id="pvc">बंद करें</button></div></div>
+<div id="pv"><div id="pvn"></div><div class="pvm"><button class="nv" id="pvp">‹</button><img id="pvi" alt=""><button class="nv" id="pvx">›</button></div><div class="row" style="width:100%;max-width:380px"><button id="pvf">📌 सबसे आगे लगाएँ</button><button id="pvr">+ फोटो जोड़ें</button><button id="pvd">यह फोटो हटाएँ</button><button id="pvc">बंद करें</button></div></div>
 <style>
 .ofl{display:inline-block;font-size:12px;font-weight:900;color:#b42410;background:#fff3e0;border:1px solid #f5c58a;border-radius:6px;padding:2px 7px;margin:0 0 6px}
 .ofl.big{font-size:15px;padding:4px 10px;margin:6px 0 2px}
@@ -674,6 +673,22 @@ body.srch #ap{display:none!important}
 <style id="klogo">
 #wlc{display:none!important}
 #tg{font-size:28px!important;font-weight:900!important;padding:10px 20px!important;margin-bottom:10px!important}
+</style>
+<style id="kupi">
+#byqr .qrb{margin-top:10px;border:1.5px dashed #2874f0;border-radius:12px;padding:12px;text-align:center;background:#f5f9ff}
+#byqr .qrb img{width:220px;max-width:100%;border-radius:8px;background:#fff}
+#byqr .qru{font-size:15px;font-weight:700;margin-top:6px;color:#111;word-break:break-all}
+#byqr .qra{display:block;margin-top:10px;background:#2874f0;color:#fff;text-decoration:none;font-weight:900;border-radius:8px;padding:12px;font-size:16px}
+</style>
+<style id="kpay2">
+#byqr .qrh{font-size:17px;font-weight:900;margin-bottom:6px}
+#byqr .qro{font-size:15px;font-weight:700}
+#byqr .qro b{font-size:24px;color:#e8260a}
+#byqr .qrn{font-size:12px;color:#555;margin:4px 0 8px}
+#byqr .qrc{margin-left:8px;border:1px solid #2874f0;background:#fff;color:#2874f0;border-radius:6px;padding:3px 10px;font-weight:800}
+#byu{width:100%;box-sizing:border-box;margin-top:10px;padding:10px;font-size:15px;border:1px solid #ccd;border-radius:8px}
+#pv .row{flex-wrap:wrap}
+#pv .row button{flex:1 1 45%}
 </style>
 <script>
 /* ===== उधार + ऑफर: दोनों Daily Hisab से आते हैं (ग्राहक के मोबाइल नंबर के हिसाब से) ===== */
@@ -1004,12 +1019,13 @@ var pw=getPw();
 if(!pw){ask("पहले नया पासवर्ड सेट कीजिए (इसे याद रखिए):",function(n){if(!n)return;setPw(n);cb()});return}
 ask(msg,function(p){if(p===null)return;if(hash(p)!==pw){ask("गलत पासवर्ड",function(){},true);return}cb()});
 }
-function phPw(msg,cb){if(isUnl()){cb();return}ask(msg,function(p){if(p===null)return;if(hash(p)!=="536364552"){ask("गलत पासवर्ड",function(){},true);return}setUnl();cb()})}
+var PH_SESS=false;
+function phPw(msg,cb){if(PH_SESS){cb();return}ask(msg,function(p){if(p===null)return;if(hash(p)!=="536364552"){ask("गलत पासवर्ड",function(){},true);return}PH_SESS=true;cb()})}
 function photoAction(i){
 pIdx=i;
 phPw("फोटो जोड़ने के लिए पासवर्ड डालिए:",function(){openSheet(i)});
 }
-function openSheet(i,msg){pIdx=i;document.getElementById("pst").textContent=msg||"फोटो / वीडियो कैसे लगाएँ?";document.getElementById("psx").textContent=msg?"बस, हो गया":"रद्द करें";document.getElementById("ps").classList.add("on")}
+function openSheet(i,msg){pIdx=i;document.getElementById("pst").textContent=msg||"फोटो / वीडियो कैसे लगाएँ? (लैपटॉप: कई फोटो एक साथ चुनिए, या Ctrl+V से paste कीजिए)";document.getElementById("psx").textContent=msg?"बस, हो गया":"रद्द करें";document.getElementById("ps").classList.add("on")}
 function closeSheet(){document.getElementById("ps").classList.remove("on")}
 document.getElementById("psc").onclick=function(){closeSheet();pickPhoto(pIdx,true)};
 document.getElementById("psg").onclick=function(){closeSheet();pickPhoto(pIdx,false)};
@@ -1028,7 +1044,7 @@ var ph=(items[pIdx]&&items[pIdx].Photos)||[];
 if(!ph.length){hidePhoto();return}
 if(pPos>=ph.length)pPos=ph.length-1;if(pPos<0)pPos=0;
 document.getElementById("pvi").src=ph[pPos];
-document.getElementById("pvn").textContent=(pPos+1)+" / "+ph.length;
+document.getElementById("pvn").textContent=(pPos+1)+" / "+ph.length+(pPos===0?"  📌 सबसे आगे":"");
 document.getElementById("pvp").style.visibility=pPos>0?"visible":"hidden";
 document.getElementById("pvx").style.visibility=pPos<ph.length-1?"visible":"hidden"
 }
@@ -1049,12 +1065,17 @@ im.onerror=function(){URL.revokeObjectURL(url);res(false)};
 im.src=url
 })
 }
-function onPhotoPicked(e){
-var files=Array.prototype.slice.call(e.target.files||[]);if(!files.length||pIdx<0)return;
+function addPhotoFiles(files,sayDone){
+files=(files||[]).filter(function(f){return f&&/^image\//.test(f.type||"image/")});if(!files.length||pIdx<0||!items[pIdx])return;
 var idx=pIdx,bad=0,chain=Promise.resolve();
 files.forEach(function(f){chain=chain.then(function(){return procPhoto(f,idx)}).then(function(ok){if(!ok)bad++})});
-chain.then(function(){save();render();if(bad){ask(bad+" फ़ोटो नहीं खुल पाई",function(){},true);return}var n=(items[idx]&&items[idx].Photos||[]).length;if(lastCam)openSheet(idx,"✔ फोटो जुड़ गई (कुल "+n+"). और फोटो लगानी है?")})
+chain.then(function(){save();render();if(bad){ask(bad+" फ़ोटो नहीं खुल पाई",function(){},true);return}var n=(items[idx]&&items[idx].Photos||[]).length;if(lastCam||sayDone)openSheet(idx,"✔ "+files.length+" फोटो जुड़ गई (कुल "+n+"). और फोटो लगानी है?")})
 }
+function onPhotoPicked(e){addPhotoFiles(Array.prototype.slice.call(e.target.files||[]))}
+document.addEventListener("paste",function(e){var op=document.getElementById("ps").classList.contains("on")||(document.getElementById("pv").classList.contains("on")&&PH_SESS);if(!op||pIdx<0)return;
+var cd=e.clipboardData;if(!cd||!cd.items)return;var fs=[];for(var k=0;k<cd.items.length;k++){var it=cd.items[k];if(it.kind==="file"&&/^image\//.test(it.type)){var f=it.getAsFile();if(f)fs.push(f)}}
+if(!fs.length)return;e.preventDefault();addPhotoFiles(fs,true)});
+(function(){var ps=document.getElementById("ps");ps.addEventListener("dragover",function(e){e.preventDefault()});ps.addEventListener("drop",function(e){e.preventDefault();addPhotoFiles(Array.prototype.slice.call((e.dataTransfer&&e.dataTransfer.files)||[]),true)})})();
 document.getElementById("pf").onchange=onPhotoPicked;
 document.getElementById("pfc").onchange=onPhotoPicked;
 document.getElementById("pvc").onclick=hidePhoto;
@@ -1064,6 +1085,8 @@ document.getElementById("pvx").onclick=function(){pPos++;drawPv()};
 im.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
 im.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(dx>50){pPos--;drawPv()}else if(dx<-50){pPos++;drawPv()}},{passive:true})})();
 document.getElementById("pvr").onclick=function(){var i=pIdx;hidePhoto();phPw("फोटो जोड़ने के लिए पासवर्ड डालिए:",function(){openSheet(i)})};
+document.getElementById("pvf").onclick=function(){var i=pIdx,p=pPos;if(p===0){ask("यह फोटो पहले से सबसे आगे है",function(){},true);return}
+hidePhoto();phPw("फोटो आगे लगाने के लिए पासवर्ड डालिए:",function(){var a=items[i].Photos||[];if(p>=a.length)return;var x=a.splice(p,1)[0];a.unshift(x);items[i].Photos=a;save();render();showPhoto(i,0)})};
 document.getElementById("pvd").onclick=function(){
 var i=pIdx,p=pPos;hidePhoto();
 phPw("फोटो हटाने के लिए पासवर्ड डालिए:",function(){
@@ -1216,28 +1239,39 @@ var _r0=render;render=function(){_r0();if(dtI>=0)drawDt()};
 
 var byI=-1,byQ=1,byD="shop",byP="Cash",pendNo="";
 function drawNo(t){var e=document.getElementById("byno");if(e)e.innerHTML=t?'<div class="byh">🧾 ऑर्डर नंबर</div><div style="font-size:24px;font-weight:900;color:#e63c1f;letter-spacing:.5px">'+esc(t)+'</div><div style="font-size:12px;color:#555;font-weight:700">यह नंबर संभालकर रखिए – इसी से आपका ऑर्डर मिलेगा</div>':'<div class="byh">🧾 ऑर्डर नंबर</div><div style="font-size:14px;color:#555;font-weight:700">ऑर्डर भेजते ही नंबर बन जाएगा</div>'}
-function openBuy(i){var o=items[i];if(!o)return;if(!getUser()){pendingBuy=i;openLogin("पहले Login कीजिए, फिर ऑर्डर होगा");return}byI=i;byQ=1;byD="home";byP="Cash";
+function openBuy(i){var o=items[i];if(!o)return;if(!getUser()){pendingBuy=i;openLogin("पहले Login कीजिए, फिर ऑर्डर होगा");return}byI=i;byQ=1;byD="home";byP="Cash";pendFail=false;
 var sv={};try{sv=JSON.parse(localStorage.getItem("kms_buyer")||"{}")}catch(e){}
 document.getElementById("byn").value=sv.n||"";document.getElementById("bym").value=sv.m||"";document.getElementById("bya").value=sv.a||"";document.getElementById("byc").value=sv.c||"";document.getElementById("byp").value=sv.p||"";document.getElementById("byk").value=sv.k||"";document.getElementById("byd").value=sv.d||"";document.getElementById("bys").value=sv.s||"Uttar Pradesh";document.getElementById("byt").value="";
 document.getElementById("byerr").textContent="";applyUserToBuy();drawBy();document.getElementById("byno").style.display="none";var b=document.getElementById("by");b.classList.add("on");b.scrollTop=0}
 function inr(n){return "₹"+(Math.round(n*100)/100).toLocaleString("en-IN")}
+/* UPI: सिर्फ़ UPI ID + ऑर्डर नंबर (पेमेंट के Note में) – QR की ज़रूरत नहीं */
+var UPI_ID="U1F0640191@mairtel",pendBusy=false,pendFail=false;
+function drawQR(R,q){var e=document.getElementById("byqr");if(!e)return;if(byP!=="UPI"){e.style.display="none";e.innerHTML="";return}
+e.style.display="block";
+if(!pendNo&&!pendFail){e.innerHTML='<div class="qrb"><div class="qru">⏳ आपका ऑर्डर नंबर बन रहा है…</div></div>';
+if(!pendBusy){pendBusy=true;getOrderNo(function(n){pendBusy=false;if(n)pendNo=n;else pendFail=true;if(byI>=0)drawBy()})}return}
+var u0="",ue=document.getElementById("byu");if(ue)u0=ue.value;
+var am=(R!==null&&R!==undefined)?(Math.round(R*q*100)/100).toFixed(2):"";
+var tn=(pendNo?pendNo+" ":"")+"KING MOBILE";
+var lk="upi://pay?pa="+UPI_ID+"&pn="+encodeURIComponent("KING MOBILE")+"&cu=INR"+(am?"&am="+am:"")+"&tn="+encodeURIComponent(tn);
+e.innerHTML='<div class="qrb"><div class="qrh">📲 UPI से पेमेंट</div>'+(pendNo?'<div class="qro">आपका ऑर्डर नंबर<br><b>'+esc(pendNo)+'</b></div><div class="qrn">पेमेंट के Note में यही नंबर जाएगा (नीचे का बटन दबाने पर अपने-आप भर जाता है। न भरे तो खुद लिख दीजिए)</div>':'')+'<div class="qru">UPI ID: <b>'+UPI_ID+'</b> <button type="button" class="qrc" onclick="try{navigator.clipboard.writeText(\''+UPI_ID+'\')}catch(x){}this.textContent=\'✔ कॉपी\'">कॉपी</button></div>'+(am?'<div class="qru">रकम: <b>₹'+am+'</b></div>':'')+'<a class="qra" href="'+lk+'">📲 पेमेंट ऐप खोलिए (GPay / PhonePe / Paytm)</a><input type="text" id="byu" inputmode="numeric" maxlength="22" placeholder="पेमेंट के बाद UPI Transaction ID / UTR (वैकल्पिक)" value="'+esc(u0)+'"></div>'}
 function drawBy(){var o=items[byI];if(!o){return}
 var im=(o.Photos&&o.Photos.length)?'<img src="'+esc(o.Photos[0])+'" alt="">':'<span>📷</span>';
 var M=numOf(o.MRate),R0=numOf(o.Rate),R=(R0===null?null:R0-offPU(R0,byQ));
 document.getElementById("bysum").innerHTML='<div class="bys1"><div class="bysi">'+im+'</div><div class="bysd"><div class="bysn">'+esc(o.Item)+'</div><div class="bysp">'+(hasR(o)?'<span class="dgm">₹'+esc(mkStr(o))+'</span> <span class="dgr">₹'+fmtN(R)+'</span>':'')+'</div>'+((hasR(o)&&offLbl())?'<div class="ofl">'+offLbl()+'</div>':'')+'<div class="bysk">SKU: '+esc(o.SKU!==undefined&&o.SKU!==null&&o.SKU!==""?o.SKU:0)+(o.Warranty?' · 🛡 '+esc(o.Warranty):'')+'</div></div></div>';
 document.getElementById("byqv").textContent=byQ;
-document.getElementById("bdshop").classList.toggle("on",byD==="shop");document.getElementById("bdhome").classList.toggle("on",byD==="home");
+byD="home";
 document.getElementById("byaddr").style.display=byD==="home"?"block":"none";
-["Cash","UPI","Udhaar"].forEach(function(k){document.getElementById("bp"+k).classList.toggle("on",byP===k)});
+if(byP!=="UPI")byP="Cash";["Cash","UPI"].forEach(function(k){document.getElementById("bp"+k).classList.toggle("on",byP===k)});
 var h='<div class="byh">कीमत का ब्योरा</div>';
 if(R!==null){h+='<div class="byr"><span>कीमत ('+byQ+' आइटम)</span><span>'+inr((M!==null&&M>R0?M:R0)*byQ)+'</span></div>';
 if(M!==null&&M>R0)h+='<div class="byr g"><span>छूट</span><span>− '+inr((M-R0)*byQ)+'</span></div>';
 if(offAvail()>0)h+='<div class="byr"><span>ऑफर '+(offLocked()?'<s>₹'+fmtN(offAvail())+'</s>':'₹'+fmtN(offAvail()))+' उपलब्ध</span><button class="offt '+(offOn()?'on':'off')+'" data-offt="1">'+(offOn()?'ON':'OFF')+'</button></div>';
 if(R0>R)h+='<div class="byr g"><span>ऑफर ₹'+fmtN((R0-R)*byQ)+' की छूट</span><span>− '+inr((R0-R)*byQ)+'</span></div>';
 if(custGet().due>0)h+='<div class="byr"><span>आपका पुराना उधार (अलग)</span><span>'+inr(custGet().due)+'</span></div>';
-h+='<div class="byr"><span>डिलीवरी</span><span>'+(byD==="shop"?"दुकान से लेना – फ्री":"दुकान पर तय होगा")+'</span></div><div class="byr tot"><span>कुल रकम</span><span>'+inr(R*byQ)+'</span></div>'}
+h+='<div class="byr"><span>डिलीवरी</span><span>'+"दुकान पर तय होगा"+'</span></div><div class="byr tot"><span>कुल रकम</span><span>'+inr(R*byQ)+'</span></div>'}
 else h+='<div class="byr"><span>रेट</span><span>दुकान पर बताया जाएगा</span></div>';
-document.getElementById("bypd").innerHTML=h}
+document.getElementById("bypd").innerHTML=h;drawQR(R,byQ)}
 function closeBuy(){byI=-1;document.getElementById("by").classList.remove("on")}
 document.getElementById("byx").addEventListener("click",closeBuy);
 document.getElementById("by").addEventListener("click",function(e){
@@ -1266,7 +1300,8 @@ var btn=document.getElementById("bysend");btn.disabled=true;btn.textContent="⏳
 var w=null;
 var R0=numOf(o.Rate),R=(R0===null?null:R0-offPU(R0,byQ)),M=numOf(o.MRate),s=stkOf(o.Qty);
 var D=(R0===null?0:Math.round((R0-R)*byQ*100)/100);
-(function(cb){if(pendNo)cb(pendNo);else getOrderNo(cb)})(function(no){pendNo="";
+var ut=(document.getElementById("byu")||{value:""}).value.trim();
+(function(cb){if(pendNo)cb(pendNo);else getOrderNo(cb)})(function(no){pendNo="";if(byP==="UPI"){nt=(nt?nt+" | ":"")+"UPI Ref: "+(no||"")+(ut?" | UTR: "+ut:"")}
 var L=["*KING MOBILE SHOP – नया ऑर्डर*"];if(no)L.push("*ऑर्डर नंबर: "+no+"*");L.push("","*आइटम:* "+o.Item);
 if(o.SKU!==undefined&&o.SKU!==null&&o.SKU!=="")L.push("SKU: "+o.SKU);
 if(o.Warranty)L.push("Warranty: "+o.Warranty);
@@ -1373,7 +1408,7 @@ var M=fnum(o.mrate),R=fnum(o.rate),q=fnum(o.qty)||1,tot=fnum(o.total);if(tot===n
 h+='<div class="xsec"><div class="xh2">🛒 आइटम की पूरी जानकारी</div><div style="display:flex;gap:12px"><div class="xi" style="flex:none;width:92px;height:92px;border-radius:10px;background:#eceef1;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:28px">'+(o.thumb?'<img alt="" style="width:100%;height:100%;object-fit:contain" src="'+esc(o.thumb)+'">':'📦')+'</div><div style="min-width:0"><div class="xn" style="-webkit-line-clamp:4;font-size:16px">'+esc(o.item)+'</div>'
 +'<div style="margin-top:4px">'+(M!==null?'<span style="text-decoration:line-through;color:#555;font-weight:700;margin-right:6px">'+inr(M)+'</span>':'')+(R!==null?'<span style="font-size:20px;font-weight:900;color:#000">'+inr(R)+'</span>':'')+'</div></div></div>'
 +'<div style="margin-top:10px">'+(o.sku!==""&&o.sku!=null?'<div class="xkv"><span>SKU</span><span>'+esc(o.sku)+'</span></div>':'')+(o.warranty?'<div class="xkv"><span>Warranty</span><span>🛡 '+esc(o.warranty)+'</span></div>':'')+'<div class="xkv"><span>मात्रा</span><span>'+esc(o.qty||1)+'</span></div>'+(tot!==null?'<div class="xkv"><span>कुल रकम</span><span style="font-size:18px">'+inr(tot)+'</span></div>':'')+'</div></div>';
-h+='<div class="xsec"><div class="xh2">👤 आपकी जानकारी</div><div class="xkv"><span>नाम</span><span>'+esc(o.name)+'</span></div><div class="xkv"><span>मोबाइल</span><span>'+esc(m)+'</span></div><div class="xkv"><span>सामान</span><span>'+(o.delivery==="घर"?"🚚 घर पर मँगवाना":"🏪 दुकान से लेना")+'</span></div>'
+h+='<div class="xsec"><div class="xh2">👤 आपकी जानकारी</div><div class="xkv"><span>नाम</span><span>'+esc(o.name)+'</span></div><div class="xkv"><span>मोबाइल</span><span>'+esc(m)+'</span></div><div class="xkv"><span>सामान</span><span>'+"🚚 घर पर मँगवाना"+'</span></div>'
 +(o.delivery==="घर"?'<div class="xkv"><span>पता</span><span>'+esc(o.address)+(o.city?', '+esc(o.city):'')+(o.pin?' - '+esc(o.pin):'')+'</span></div>':'')
 +'<div class="xkv"><span>पेमेंट</span><span>'+esc(o.payment||"—")+'</span></div>'+(o.note?'<div class="xkv"><span>नोट</span><span>'+esc(o.note)+'</span></div>':'')+'</div>';
 h+='<div class="xsec"><div class="xh2">🏪 KING MOBILE SHOP</div><div class="xrow" style="margin-top:0"><a class="xa" href="tel:9558222519">📞 कॉल करें</a><a class="xw" target="_blank" href="https://wa.me/919558222519">💬 WhatsApp</a></div>';
