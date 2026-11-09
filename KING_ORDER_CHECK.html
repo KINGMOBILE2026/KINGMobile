@@ -217,8 +217,9 @@ if(a>0&&(s==="Cancelled"||s==="DelCancelled")&&String(o.offerref)!=="1"){o.offer
 function find(id){for(var i=0;i<orders.length;i++)if(String(orders[i].id)===id)return orders[i]}
 function askYes(msg,yes,label){openSheet('<h3>'+esc(msg)+'</h3><div class="r"><button class="no" id="ayn">नहीं</button><button class="ok" id="ayy">'+esc(label||"हाँ, पक्का")+'</button></div>');
 document.getElementById("ayn").onclick=closeSheet;document.getElementById("ayy").onclick=function(){closeSheet();yes()}}
+var STANDALONE=!(function(){try{return !!(window.frameElement&&/^f_(cust|admin|del)$/.test(window.frameElement.id))}catch(e){return false}})();   /* index.html ke andar nahi (alag file akeli khuli) -> password wali jagah chup-chaap band: click par kuch nahi hota */
 function hsh(x){var h=5381;for(var i=0;i<x.length;i++)h=((h<<5)+h+x.charCodeAt(i))|0;return String(h)}
-function askPw(msg,ok){openSheet('<h3>'+esc(msg)+'</h3><input type="password" inputmode="numeric" id="apw" placeholder="पासवर्ड डालिए" autocomplete="off"><div id="msg"></div><div class="r"><button class="no" id="apn">बंद</button><button class="ok" id="apy">रद्द करें</button></div>');
+function askPw(msg,ok){if(STANDALONE)return;openSheet('<h3>'+esc(msg)+'</h3><input type="password" inputmode="numeric" id="apw" placeholder="पासवर्ड डालिए" autocomplete="off"><div id="msg"></div><div class="r"><button class="no" id="apn">बंद</button><button class="ok" id="apy">रद्द करें</button></div>');
 setTimeout(function(){var e=document.getElementById("apw");if(e)e.focus()},60);
 document.getElementById("apn").onclick=closeSheet;
 document.getElementById("apy").onclick=function(){if(hsh(document.getElementById("apw").value.trim())!=="536364552"){document.getElementById("msg").textContent="⚠ गलत पासवर्ड";return}closeSheet();ok()}}
